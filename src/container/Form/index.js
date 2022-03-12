@@ -1,6 +1,10 @@
+import './index.css'
 function Form() {
+  const submitAction = e => {
+    e.preventDefault()
+  }
   return (
-        <form>
+        <form onSubmit={submitAction}>
           <label 
           htmlFor='event-name' 
           data-testid="event-name__label">
@@ -29,11 +33,13 @@ function Form() {
           data-testid="event-time__label">
             Hora
             <input 
+              defaultValue={'00:00'}
               data-testid="event-time__input" 
               type="time" 
               name='event-time' 
               id="event-time"/>
           </label>
+          <button data-testid="add-event" type="submit">Adicionar</button>
         </form>
   );
 }
