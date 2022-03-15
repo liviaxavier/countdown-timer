@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('Data input section', () => {
+  test('renders section title', () => {
+    render(<App />);
+    const title = screen.getByTestId('section__title');
+    expect(title).toBeInTheDocument();
+  });
+})
