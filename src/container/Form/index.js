@@ -1,10 +1,18 @@
 import './index.css'
-function Form() {
+function Form({onSubmit}) {
   const submitAction = e => {
     e.preventDefault()
+    var inputs = document.getElementById("countdown__form").elements
+    const event = {
+      date: new Date(`${inputs['event-date'].value} ${inputs['event-time'].value}`), 
+      name: inputs['event-name'].value, 
+      datetime: new Date(`${inputs['event-date'].value} ${inputs['event-time'].value}`).toLocaleString(), 
+      time: inputs['event-time'].value
+    }
+    onSubmit(event)
   }
   return (
-        <form onSubmit={submitAction}>
+        <form id="countdown__form" onSubmit={submitAction}>
           <label 
           htmlFor='event-name' 
           data-testid="event-name__label">
